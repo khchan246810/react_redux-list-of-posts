@@ -73,7 +73,9 @@ const commentsSlice = createSlice({
       }))
       .addCase(createComment.rejected, state => ({
         ...state,
+        loaded: true,
         hasError: true,
+        items: state.items,
       }))
       .addCase(deleteComment.fulfilled, (state, action) => ({
         ...state,
@@ -81,7 +83,9 @@ const commentsSlice = createSlice({
       }))
       .addCase(deleteComment.rejected, state => ({
         ...state,
+        loaded: true,
         hasError: true,
+        items: state.items,
       }));
   },
 });
